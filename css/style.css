@@ -153,7 +153,7 @@ p { max-width: 62ch; }
   color: var(--mocha-deep);
   letter-spacing: 0.01em;
 }
-.logo span { color: var(--wine); font-style: italic; }
+.logo span { color: var(--wine); font-style: normal; }
 
 .main-nav {
   display: flex;
@@ -195,6 +195,7 @@ p { max-width: 62ch; }
   background: transparent;
 }
 .icon-btn:hover { border-color: var(--mocha-deep); }
+.icon-btn svg { color: var(--mocha-deep); }
 
 .cart-count {
   position: absolute;
