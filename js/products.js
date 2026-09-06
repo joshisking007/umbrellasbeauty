@@ -77,9 +77,27 @@ const PRODUCTS = [
     image: "assets/images/products/hivi-glam-set.jpg",
     description: "A curated set of lip products, mascara, and a touch-up mirror — ready to gift or keep.",
     bestseller: true
+  },
+  {
+    id: "florona-blushy-girl",
+    name: "Blushy Girl Eau de Parfum",
+    brand: "Florona Collection",
+    category: "fragrance",
+    price: 11500,
+    compareAt: 24000,
+    image: "assets/images/products/florona-blushy-girl.jpg",
+    description: "A soft, floral-sweet Eau de Parfum in an elegant pink bottle. 100ml, made for everyday wear or gifting.",
+    bestseller: true
   }
 ];
 
 function formatNaira(amount) {
   return "₦" + amount.toLocaleString("en-NG");
+}
+
+function priceMarkup(product) {
+  if (product.compareAt) {
+    return `<span class="price">${formatNaira(product.price)}</span> <span class="compare-price">${formatNaira(product.compareAt)}</span>`;
+  }
+  return `<span class="price">${formatNaira(product.price)}</span>`;
 }
