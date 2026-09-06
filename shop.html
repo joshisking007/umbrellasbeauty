@@ -53,6 +53,7 @@
         <button data-filter="lips">Lips</button>
         <button data-filter="eyes">Eyes</button>
         <button data-filter="sets">Sets &amp; gifting</button>
+        <button data-filter="fragrance">Fragrance</button>
       </div>
       <div class="product-grid" id="productGrid"></div>
     </div>
@@ -72,6 +73,7 @@
         <li><a href="shop.html?category=lips">Lips</a></li>
         <li><a href="shop.html?category=eyes">Eyes</a></li>
         <li><a href="shop.html?category=sets">Sets &amp; gifting</a></li>
+        <li><a href="shop.html?category=fragrance">Fragrance</a></li>
       </ul>
     </div>
     <div>
@@ -128,7 +130,7 @@
         <h3>${p.name}</h3>
         <p class="desc">${p.description}</p>
         <div class="price-row">
-          <span class="price">${formatNaira(p.price)}</span>
+          ${priceMarkup(p)}
           <button class="add-btn" data-add="${p.id}">Add to bag</button>
         </div>
       </article>
