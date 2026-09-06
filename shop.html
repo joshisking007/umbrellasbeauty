@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shop — Umbrella's Beauty</title>
+<meta name="description" content="Shop lips, eyes, and gift sets from Umbrella's Beauty. Add to bag and checkout on WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="logo">Umbrella<span>'s</span> Beauty</a>
+    <nav class="main-nav" id="mainNav">
+      <a href="index.html">Home</a>
+      <a href="shop.html" class="active">Shop</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-btn" data-cart-open aria-label="Open cart">
+        🛍
+        <span class="cart-count" data-cart-count>0</span>
+      </button>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+        <span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main class="shop-layout">
+
+  <div class="page-header">
+    <div class="container">
+      <h1 style="font-size:clamp(2.25rem,4.5vw,3.5rem);">Shop the edit</h1>
+      <p>Seven pieces, chosen properly. Everything ships from Jabi, Abuja.</p>
+    </div>
+  </div>
+
+  <div class="section" style="padding-top:2rem;">
+    <div class="container">
+      <div class="filter-tabs" id="filterTabs">
+        <button data-filter="all" class="active">All</button>
+        <button data-filter="lips">Lips</button>
+        <button data-filter="eyes">Eyes</button>
+        <button data-filter="sets">Sets &amp; gifting</button>
+      </div>
+      <div class="product-grid" id="productGrid"></div>
+    </div>
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <a href="index.html" class="logo">Umbrella<span>'s</span> Beauty</a>
+      <p>Cosmetics and self-care, made for beauty of the seasons. 29 Ebitu Ukiwe Street, Jabi, Abuja.</p>
+    </div>
+    <div>
+      <h4>Shop</h4>
+      <ul>
+        <li><a href="shop.html?category=lips">Lips</a></li>
+        <li><a href="shop.html?category=eyes">Eyes</a></li>
+        <li><a href="shop.html?category=sets">Sets &amp; gifting</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Company</h4>
+      <ul>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Get in touch</h4>
+      <ul>
+        <li><a href="https://wa.me/2348032557427" target="_blank" rel="noopener">WhatsApp</a></li>
+        <li><a href="https://www.instagram.com/umbrellasbeauty" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href="tel:+2348032557427">+234 803 255 7427</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <span>© <span id="year"></span> Umbrella's Beauty. All rights reserved.</span>
+    <span>Beauty of the seasons.</span>
+  </div>
+</footer>
+
+<div class="cart-overlay" id="cartOverlay"></div>
+<aside class="cart-drawer" id="cartDrawer" aria-label="Shopping cart">
+  <div class="cart-head">
+    <h3>Your bag</h3>
+    <button class="cart-close" id="cartClose" aria-label="Close cart">✕</button>
+  </div>
+  <div class="cart-items" id="cartItems"></div>
+  <div class="cart-foot">
+    <div class="cart-subtotal"><span>Subtotal</span><span id="cartSubtotal">₦0</span></div>
+    <p class="cart-note">Checkout completes on WhatsApp, where we'll confirm availability and delivery.</p>
+    <button class="btn btn-whatsapp btn-block" id="cartCheckoutBtn">Checkout on WhatsApp</button>
+  </div>
+</aside>
+
+<script src="js/products.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/main.js"></script>
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  const grid = document.getElementById("productGrid");
+  const tabs = document.querySelectorAll("#filterTabs button");
+
+  function renderGrid(filter) {
+    const items = filter === "all" ? PRODUCTS : PRODUCTS.filter(p => p.category === filter);
+    grid.innerHTML = items.map(p => `
+      <article class="product-card">
+        <div class="thumb"><img src="${p.image}" alt="${p.name}" loading="lazy"></div>
+        <span class="brand">${p.brand}</span>
+        <h3>${p.name}</h3>
+        <p class="desc">${p.description}</p>
+        <div class="price-row">
+          <span class="price">${formatNaira(p.price)}</span>
+          <button class="add-btn" data-add="${p.id}">Add to bag</button>
+        </div>
+      </article>
+    `).join("");
+
+    grid.querySelectorAll("[data-add]").forEach(btn => {
+      btn.addEventListener("click", () => {
+        addToCart(btn.dataset.add);
+        btn.textContent = "Added";
+        btn.classList.add("added");
+        setTimeout(() => { btn.textContent = "Add to bag"; btn.classList.remove("added"); }, 1400);
+      });
+    });
+  }
+
+  tabs.forEach(tab => {
+    tab.addEventListener("click", () => {
+      tabs.forEach(t => t.classList.remove("active"));
+      tab.classList.add("active");
+      renderGrid(tab.dataset.filter);
+    });
+  });
+
+  // Support ?category=lips deep links from the homepage
+  const params = new URLSearchParams(window.location.search);
+  const initial = params.get("category");
+  if (initial && [...tabs].some(t => t.dataset.filter === initial)) {
+    tabs.forEach(t => t.classList.toggle("active", t.dataset.filter === initial));
+    renderGrid(initial);
+  } else {
+    renderGrid("all");
+  }
+</script>
+
+</body>
+</html>
