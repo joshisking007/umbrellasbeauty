@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Umbrella's Beauty</title>
+<meta name="description" content="Umbrella's Beauty is a cosmetics and self-care line built around beauty of the seasons. Read our story.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="logo">Umbrella<span>'s</span> Beauty</a>
+    <nav class="main-nav" id="mainNav">
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="about.html" class="active">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-btn" data-cart-open aria-label="Open cart">
+        🛍
+        <span class="cart-count" data-cart-count>0</span>
+      </button>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+        <span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <section class="about-hero">
+    <div class="container">
+      <div>
+        <span class="eyebrow">Our story</span>
+        <h1 style="margin-top:0.9rem;font-size:clamp(2.25rem,4.5vw,3.5rem);">Beauty that moves with the year, not against it</h1>
+        <p style="margin-top:1.3rem;color:var(--ink-soft);">Umbrella's Beauty started in Abuja with a simple observation: the products in most kits didn't account for how much a routine actually has to flex — dry-season lips, humid-season shine, harmattan wear-and-tear. We built a small, tightly-edited catalog around that reality instead of around trends.</p>
+        <p style="margin-top:1rem;color:var(--ink-soft);">The name is a small act of protection: an umbrella for whatever the season throws at you, so the beauty underneath stays constant.</p>
+      </div>
+      <img src="assets/images/products/hivi-glam-set.jpg" alt="Model with the Umbrella's Beauty Glam Edit set">
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>What guides what we stock</h2>
+          <p>We keep the range small on purpose. Every addition has to earn its place.</p>
+        </div>
+      </div>
+      <div class="values-grid">
+        <div class="value-card">
+          <h3>Tested on real skin</h3>
+          <p>Every shade and formula is worn and reviewed before it's listed, across a range of skin tones — not just the ones in the packaging photos.</p>
+        </div>
+        <div class="value-card">
+          <h3>Built for the climate</h3>
+          <p>Long-wear, waterproof, and hydrating formulas are prioritised, because a Jabi afternoon is a real product test.</p>
+        </div>
+        <div class="value-card">
+          <h3>Easy to reach us</h3>
+          <p>No account, no checkout maze. Browse, add to bag, and finish the order with a real person on WhatsApp.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="story">
+    <div class="container">
+      <div class="media">
+        <img src="assets/images/products/leafpoem-lip-duo-berry.jpg" alt="Leaf Poem lip duo pen" style="width:100%;height:100%;object-fit:cover;">
+      </div>
+      <div>
+        <h2>Beauty of the seasons</h2>
+        <p>Four seasons, one wardrobe of colour. Our seasonal edits rotate the catalog toward what a look actually needs at that time of year — deeper stains for harmattan wear, glossier finishes for the rainy months — without asking you to relearn your routine every time.</p>
+        <a href="shop.html" class="btn btn-outline">Shop the current edit</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <a href="index.html" class="logo">Umbrella<span>'s</span> Beauty</a>
+      <p>Cosmetics and self-care, made for beauty of the seasons. 29 Ebitu Ukiwe Street, Jabi, Abuja.</p>
+    </div>
+    <div>
+      <h4>Shop</h4>
+      <ul>
+        <li><a href="shop.html?category=lips">Lips</a></li>
+        <li><a href="shop.html?category=eyes">Eyes</a></li>
+        <li><a href="shop.html?category=sets">Sets &amp; gifting</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Company</h4>
+      <ul>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Get in touch</h4>
+      <ul>
+        <li><a href="https://wa.me/2348032557427" target="_blank" rel="noopener">WhatsApp</a></li>
+        <li><a href="https://www.instagram.com/umbrellasbeauty" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href="tel:+2348032557427">+234 803 255 7427</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <span>© <span id="year"></span> Umbrella's Beauty. All rights reserved.</span>
+    <span>Beauty of the seasons.</span>
+  </div>
+</footer>
+
+<div class="cart-overlay" id="cartOverlay"></div>
+<aside class="cart-drawer" id="cartDrawer" aria-label="Shopping cart">
+  <div class="cart-head">
+    <h3>Your bag</h3>
+    <button class="cart-close" id="cartClose" aria-label="Close cart">✕</button>
+  </div>
+  <div class="cart-items" id="cartItems"></div>
+  <div class="cart-foot">
+    <div class="cart-subtotal"><span>Subtotal</span><span id="cartSubtotal">₦0</span></div>
+    <p class="cart-note">Checkout completes on WhatsApp, where we'll confirm availability and delivery.</p>
+    <button class="btn btn-whatsapp btn-block" id="cartCheckoutBtn">Checkout on WhatsApp</button>
+  </div>
+</aside>
+
+<script src="js/products.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/main.js"></script>
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+
+</body>
+</html>
