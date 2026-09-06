@@ -496,7 +496,7 @@ p { max-width: 62ch; }
 
 .category-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 1.5rem;
 }
 .category-card {
@@ -525,6 +525,9 @@ p { max-width: 62ch; }
 .category-card .label h3 { color: var(--paper); }
 .category-card .label span { font-size: 0.88rem; opacity: 0.85; }
 
+@media (max-width: 1000px) {
+  .category-grid { grid-template-columns: repeat(3, 1fr); }
+}
 @media (max-width: 780px) {
   .category-grid { grid-template-columns: repeat(2, 1fr); }
 }
@@ -568,6 +571,7 @@ p { max-width: 62ch; }
   margin-top: 1rem;
 }
 .product-card .price { font-weight: 700; color: var(--mocha-deep); font-size: 1.05rem; }
+.product-card .compare-price { font-size: 0.9rem; color: var(--ink-soft); text-decoration: line-through; margin-left: 0.3rem; }
 
 .add-btn {
   background: transparent;
