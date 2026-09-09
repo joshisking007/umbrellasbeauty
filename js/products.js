@@ -94,6 +94,28 @@ const PRODUCTS = [
     image: "assets/images/products/florona-blushy-girl.jpg",
     description: "A soft, floral-sweet Eau de Parfum in an elegant pink bottle. 100ml, made for everyday wear or gifting.",
     bestseller: true
+  },
+  {
+    id: "dunuf-lip-crayon",
+    name: "#01 Lip Contour Crayon — Deep Cocoa",
+    brand: "DUNUF",
+    category: "lips",
+    price: 6500,
+    compareAt: 7300,
+    image: "assets/images/products/dunuf-lip-crayon.jpg",
+    description: "A creamy matte crayon in a deep cocoa shade that glides on and contours in one easy stroke.",
+    bestseller: false
+  },
+  {
+    id: "groinneya-lash-clusters",
+    name: "Wispy Lash Clusters",
+    brand: "GROINNEYA",
+    category: "eyes",
+    price: 4800,
+    compareAt: 6000,
+    image: "assets/images/products/groinneya-lash-clusters.jpg",
+    description: "Individual wispy lash clusters for a natural, fanned-out lift — apply exactly where you want more.",
+    bestseller: false
   }
 ];
 
