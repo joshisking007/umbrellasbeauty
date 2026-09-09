@@ -651,6 +651,18 @@ p { max-width: 62ch; }
 }
 .page-header p { color: var(--ink-soft); margin-top: 1rem; }
 
+.page-header.shop-header {
+  position: relative;
+  padding-block: clamp(3.5rem, 8vw, 6rem) clamp(2.5rem, 5vw, 3.5rem);
+  background-image:
+    linear-gradient(180deg, rgba(251,241,236,0.55) 0%, rgba(251,241,236,0.88) 100%),
+    url("../assets/images/backgrounds/floral-blossom.jpg");
+  background-size: cover;
+  background-position: center;
+  border-bottom: none;
+}
+.page-header.shop-header p { color: var(--ink-soft); }
+
 /* -------------------- Shop filters -------------------- */
 
 .shop-layout .container {
